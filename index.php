@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    // print_r($_SESSION['id']);
 	if (isset($_SESSION['id'])){
 		$ses=mysqli_query($conn,"select * from user where userid='".$_SESSION['id']."'");
 		$sesrow=mysqli_fetch_array($ses);		

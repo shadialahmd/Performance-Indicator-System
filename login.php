@@ -10,6 +10,9 @@
 		}
 		$username = check_input($_POST['username']);
 		$fpassword = md5(check_input($_POST['password']));
+		// print_r($fpassword);
+		// die();
+		// exit();
 		if (!preg_match("/^[a-zA-Z0-9_]*$/",$username)){
 			?>
 				<script>
@@ -21,7 +24,9 @@
 		else{
 			$fusername=$username;
 			$lquery=mysqli_query($con,"select * from `user` where username='$fusername' && password='$fpassword'");
+			
 			$lrow=mysqli_fetch_array($lquery);
+		
 			$lnum=mysqli_num_rows($lquery);
 			if ($lnum == 0 ){
 				header('location:log_fail.php');
